@@ -1,10 +1,20 @@
 <?php
 
-require_once("./php-oop-2/shop.php");
-require_once("./php-oop-2/client.php");
+require_once("./products/smartphone.php");
+require_once("./user.php");
+require_once("./cart.php");
+require_once("./users/primeUser.php");
+require_once("./product.php");
+require_once("./payment.php");
+require_once("./payments/creditCard.php");
 
-$shop = new Shop("t-shirt", "nike", 12);
-$client = new Client("Paolo", "Paolo.rossi@gmail.com", 27);
-$client2 = new Client("Gino", "Gino.bianchi@gmail.com", 62);
-$client3 = new Client("Marco", "Marco.neri@gmail.com", 16);
 
+$user = new PrimeUser("Paolo", "Paolo.rossi@gmail.com");
+$cart = new Cart($user);
+
+$iphone12 = new SmartphoneProduct("Iphone", 1, 980, "12 Pro", "Apple");
+
+
+$cart->addProduct($iphone12);
+
+var_dump($cart);
